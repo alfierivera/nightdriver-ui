@@ -12,11 +12,6 @@ export namespace Components {
     }
     interface PageHome {
     }
-    interface PageNotice {
-    }
-    interface PageProfile {
-        "name": string;
-    }
 }
 declare global {
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
@@ -37,24 +32,10 @@ declare global {
         prototype: HTMLPageHomeElement;
         new (): HTMLPageHomeElement;
     };
-    interface HTMLPageNoticeElement extends Components.PageNotice, HTMLStencilElement {
-    }
-    var HTMLPageNoticeElement: {
-        prototype: HTMLPageNoticeElement;
-        new (): HTMLPageNoticeElement;
-    };
-    interface HTMLPageProfileElement extends Components.PageProfile, HTMLStencilElement {
-    }
-    var HTMLPageProfileElement: {
-        prototype: HTMLPageProfileElement;
-        new (): HTMLPageProfileElement;
-    };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
         "app-tabs": HTMLAppTabsElement;
         "page-home": HTMLPageHomeElement;
-        "page-notice": HTMLPageNoticeElement;
-        "page-profile": HTMLPageProfileElement;
     }
 }
 declare namespace LocalJSX {
@@ -64,17 +45,10 @@ declare namespace LocalJSX {
     }
     interface PageHome {
     }
-    interface PageNotice {
-    }
-    interface PageProfile {
-        "name"?: string;
-    }
     interface IntrinsicElements {
         "app-root": AppRoot;
         "app-tabs": AppTabs;
         "page-home": PageHome;
-        "page-notice": PageNotice;
-        "page-profile": PageProfile;
     }
 }
 export { LocalJSX as JSX };
@@ -84,8 +58,6 @@ declare module "@stencil/core" {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "app-tabs": LocalJSX.AppTabs & JSXBase.HTMLAttributes<HTMLAppTabsElement>;
             "page-home": LocalJSX.PageHome & JSXBase.HTMLAttributes<HTMLPageHomeElement>;
-            "page-notice": LocalJSX.PageNotice & JSXBase.HTMLAttributes<HTMLPageNoticeElement>;
-            "page-profile": LocalJSX.PageProfile & JSXBase.HTMLAttributes<HTMLPageProfileElement>;
         }
     }
 }

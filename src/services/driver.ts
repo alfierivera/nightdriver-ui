@@ -14,8 +14,7 @@ export class NightDriver {
   @HandleError
   @LogExecutionTime
   async getStats(): Promise<Stats> {
-    const response = await fetch(`${this.host}/statistics`);
-    const stats = await response.json();
+    const stats = await this._request('statistics');
     const result = {
       CPU: {
         CPU: {
@@ -98,5 +97,10 @@ export class NightDriver {
     };
     state.stats = result;
     return result;
+  }
+
+  @HandleError
+  private async _request(url: string, options?: any) {
+    return await (await fetch(`${this.host}/${url}`, options)).json();
   }
 }
